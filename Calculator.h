@@ -14,16 +14,5 @@
 @property (strong,nonatomic) NSString *secondUnit;
 
 -(double)router:(NSString*)quantity firstUnit:(NSString*)firstUnit secondUnit:(NSString*)secondUnit value:(double)value;
--(double)lengthCalculator:(NSString*)first second:(NSString*)second value:(double)value;
--(double)weightCalculator:(NSString*)first second:(NSString*)second value:(double)value;
--(double)volumeCalculator:(NSString*)first second:(NSString*)second value:(double)value;
--(double)areaCalculator:(NSString*)first second:(NSString*)second value:(double)value;
--(double)speedCalculator:(NSString*)first second:(NSString*)second value:(double)value;
--(double)temperatureCalculator:(NSString*)first second:(NSString*)second value:(double)value;
--(double)timeCalculator:(NSString*)first second:(NSString*)second value:(double)value;
--(double)angleCalculator:(NSString*)first second:(NSString*)second value:(double)value;
-
-
-
 
 @end

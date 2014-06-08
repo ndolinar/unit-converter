@@ -119,7 +119,7 @@
     
 }
 - (IBAction)visitPage:(id)sender {
-    //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.google.com"]];
+    //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.nejoapps.eu"]];
 }
 
 
