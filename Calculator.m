@@ -457,7 +457,6 @@
         if([second isEqualToString:@"Liter"]){
             temp = (value * 3.785411784) / 128;
         } else if([second isEqualToString:@"Cubic Cm"]){
-            //ni tocn
             temp = ((value * 3.785411784) * 1000) / 128;
         } else if([second isEqualToString:@"Cubic Meter"]){
             temp = (value * 3.785411784) / 1000 / 128;
@@ -469,9 +468,7 @@
             temp = value / 128;
         } else if([second isEqualToString:@"Gallon"]){
             temp = ((value * 3.785411784) / 4.54609) / 128;
-            //ni tocno
         } else if([second isEqualToString:@"Fluid Oz"]){
-            //ni tocno
             temp = ((value * 3.785411784) / 4.54609 * 160) / 128;
         }
     }
@@ -487,13 +484,10 @@
         } else if([second isEqualToString:@"Cubic Inch"]){
             temp = value * 277.41954745524;
         } else if([second isEqualToString:@"Cubic Foot"]){
-            //ni tocn
             temp = (value * 277.41954745524) / 1728;
         } else if([second isEqualToString:@"US Gallon"]){
-            //ni tocn
             temp = (value / 3.785411784) * 4.54609;
         } else if([second isEqualToString:@"US Fluid Oz"]){
-            //ni tocn
             temp = ((value / 3.785411784) * 4.54609) * 128;
         } else if([second isEqualToString:@"Fluid Oz"]){
             temp = value * 160;
@@ -513,10 +507,8 @@
         } else if([second isEqualToString:@"Cubic Foot"]){
             temp = value / 996.61361162673;
         } else if([second isEqualToString:@"US Gallon"]){
-            //ni tocn
             temp = (value / 3.785411784) * 4.54609 / 160;
         } else if([second isEqualToString:@"US Fluid Oz"]){
-            //ni tocn
             temp = ((value / 3.785411784) * 4.54609 / 160) * 128;
         } else if([second isEqualToString:@"Gallon"]){
             temp = value / 160;
@@ -543,10 +535,8 @@
             temp = value * pow(0.0254, 2);
         } else if([second isEqualToString:@"Sq Km"]){
             temp = value * pow(0.0000254, 2);
-
         } else if([second isEqualToString:@"Acre"]){
             temp = value / 6272640;
-
         } else if([second isEqualToString:@"Are"]){
             temp = value / (pow((100/2.54), 2) * 100);
         }
