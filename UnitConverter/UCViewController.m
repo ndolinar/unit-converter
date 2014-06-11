@@ -119,12 +119,7 @@
     
 }
 - (IBAction)visitPage:(id)sender {
-    //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.nejoapps.eu"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.nejoapps.eu/"]];
 }
 
-
-
-
-- (IBAction)goBack:(id)sender {
-}
 @end

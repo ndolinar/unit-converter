@@ -22,5 +22,5 @@
 
 
 @property (strong,nonatomic) NSArray *UCButtons;
-- (IBAction)goBack:(id)sender;
+
 @end

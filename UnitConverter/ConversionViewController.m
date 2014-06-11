@@ -13,6 +13,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 #import "ConversionViewController.h"
 #import "Calculator.h"
+#import <QuartzCore/QuartzCore.h>
+
 
 @interface ConversionViewController () {
 
@@ -52,7 +54,20 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     self.firstUnit.text = unit1;
     self.secondUnit.text = unit2;
     
+    UIView *padding = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 5, 40)];
+    self.textField.leftView = padding;
+    self.textField.leftViewMode = UITextFieldViewModeAlways;
     self.textField.delegate = self;
+    self.textField.layer.cornerRadius = 5.0f;
+    self.textField.layer.masksToBounds = YES;
+    self.textField.layer.borderColor = [[UIColor lightGrayColor]CGColor];
+    self.textField.layer.borderWidth = 1.0f;
+    
+    self.convertBtn.layer.cornerRadius = 5.0f;
+    self.textField.layer.masksToBounds = YES;
+
+    
+    
     
     self.calc = [[Calculator alloc]init];
     double result = [self.calc router:self.quantity firstUnit:self.units[0] secondUnit:self.units[1] value:1];
@@ -65,7 +80,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     self.conversionLabel.numberOfLines = 0;
     self.conversionLabel.text = [NSString stringWithFormat:@"1 %@ equals %g %@", self.shortNames[0], result, self.shortNames[1]];
     
-    self.resultLabel.text = [NSString stringWithFormat:@"0 %@ equals to 0 %@",shortUnit1, shortUnit2];
+    self.resultLabel.text = [NSString stringWithFormat:@"0 %@ equals 0 %@",shortUnit1, shortUnit2];
     
     UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissKeyboard)];
     tapGesture.cancelsTouchesInView = NO;
@@ -90,19 +105,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void)bannerViewDidLoadAd:(ADBannerView*)banner{
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:1];
-    [banner setAlpha:1];
-    [UIView commitAnimations];
-}
-
--(void)bannerView:(ADBannerView*)banner didFailToReceiveAdWithError:(NSError *)error{
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:1];
-    [banner setAlpha:0];
-    [UIView commitAnimations];
-}
 
 
 -(void)dismissKeyboard{
@@ -117,7 +119,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
     double result = [self.calc router:self.quantity firstUnit:unit1 secondUnit:unit2 value:[self.textField.text floatValue]];
 
-    self.resultLabel.text = [NSString stringWithFormat:@"%g %@ equals to %g %@", [self.textField.text doubleValue], shortUnit1, result, shortUnit2];
+    self.resultLabel.text = [NSString stringWithFormat:@"%g %@ equals %g %@", [self.textField.text doubleValue], shortUnit1, result, shortUnit2];
     return YES;
 }
 
@@ -147,7 +149,9 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     double result = [self.calc router:self.quantity firstUnit:unit1 secondUnit:unit2 value:1];
     self.conversionLabel.text = [NSString stringWithFormat:@"1 %@ equals %g %@", shortUnit1, result, shortUnit2];
-    self.resultLabel.text = @"";
+    
+    [self textFieldShouldReturn:self.textField];
+
 }
 
 - (IBAction)buttonTouchDown:(UIButton *)sender {
@@ -160,6 +164,10 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         }];
     }];
 
+}
+
+- (IBAction)convertButton:(id)sender {
+    [self textFieldShouldReturn:self.textField];
 }
 
 

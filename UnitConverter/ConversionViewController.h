@@ -26,9 +26,11 @@
 @property (strong,nonatomic) NSString *textForLabel;
 
 @property (strong,nonatomic) Calculator *calc;
+@property (weak, nonatomic) IBOutlet UIButton *convertBtn;
 
 - (IBAction)reverseUnits:(id)sender;
 
 - (IBAction)buttonTouchDown:(UIButton *)sender;
+- (IBAction)convertButton:(id)sender;
 
 @end
