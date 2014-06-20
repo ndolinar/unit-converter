@@ -72,8 +72,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     self.calc = [[Calculator alloc]init];
     double result = [self.calc router:self.quantity firstUnit:self.units[0] secondUnit:self.units[1] value:1];
     
-    double result0 = [self.calc router:self.quantity firstUnit:self.units[0] secondUnit:self.units[1] value:0];
-    
 
     self.resultLabel.lineBreakMode = NSLineBreakByWordWrapping;
     self.resultLabel.numberOfLines = 0;
@@ -82,7 +80,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     self.conversionLabel.numberOfLines = 0;
     self.conversionLabel.text = [NSString stringWithFormat:@"1 %@ equals %g %@", self.shortNames[0], result, self.shortNames[1]];
     
-    self.resultLabel.text = [NSString stringWithFormat:@"0 %@ equals %g %@",shortUnit1, result0,shortUnit2];
+    self.resultLabel.text = [NSString stringWithFormat:@"0 %@ equals 0 %@",shortUnit1, shortUnit2];
     
     UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissKeyboard)];
     tapGesture.cancelsTouchesInView = NO;
@@ -170,20 +168,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 - (IBAction)convertButton:(id)sender {
     [self textFieldShouldReturn:self.textField];
-}
-
--(void)bannerViewDidLoadAd:(ADBannerView*)banner{
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:1];
-    [banner setAlpha:1];
-    [UIView commitAnimations];
-}
-
--(void)bannerView:(ADBannerView*)banner didFailToReceiveAdWithError:(NSError *)error{
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:1];
-    [banner setAlpha:0];
-    [UIView commitAnimations];
 }
 
 
