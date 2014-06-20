@@ -22,7 +22,7 @@
     
 
     
-    self.UCButtons = @[self.lengthButton, self.weightButton, self.volumeButton, self.areaButton, self.speedButton, self.tempButton, self.tempButton, self.angleButton];
+    self.UCButtons = @[self.lengthButton, self.weightButton, self.volumeButton, self.areaButton, self.speedButton, self.tempButton, self.tempButton, self.timeButton, self.angleButton];
     
     for(UIButton *b in self.UCButtons){
         [b addTarget:self action:@selector(buttonTouchDown:event:) forControlEvents:UIControlEventTouchDown];
